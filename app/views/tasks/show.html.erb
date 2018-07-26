@@ -1,0 +1,21 @@
+<h1> id <%= @task.id %>番のタスク詳細ページ　</h1>
+
+↑ @task.id
+
+
+
+
+<p><%= @task.content %></p>
+↑@task.content
+
+
+
+
+<p><%= link_to '一覧に戻る', tasks_path %></p>
+↑link_to tasks_path
+
+<p><%= link_to 'このタスクを編集する', edit_task_path(@task) %></p>
+<p>link_to　edit_task_path</p>
+
+<p><%= link_to '削除する？', @message, method: :delete, data: { confirm: 'OK？' } %></p>
+link_to '削除する？', @message, method: :delete, data: { confirm: 'OK？' 
