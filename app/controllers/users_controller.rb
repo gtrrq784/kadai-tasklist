@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show]
+  before_action :correct_user, only: [:show, :index]
   def index
     @users = User.all
   end
@@ -29,11 +30,20 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-end
+
 
 
 private
 
 def user_params
   params.require(:user).permit(:name, :email, :password, :password_confirmation)
+end
+
+
+  def correct_user
+    @task = current_user.tasks.find_by(id: params[:id])
+    unless @task
+      redirect_to root_url
+    end
+  end
 end
