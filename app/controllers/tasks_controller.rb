@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :correct_user, only: [:show]
+  before_action :correct_user, only: [:edit, :show,]
 
    def index
   end
